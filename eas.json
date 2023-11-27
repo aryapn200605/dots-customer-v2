@@ -1,0 +1,301 @@
+{
+  "build": {
+    "ksp_sinar_pelita": {
+      "android": {
+        "buildType": "apk"
+      },
+      "env": {
+        "API_URL": "http://192.168.18.100:8000",
+        "PUBLIC_ID": "ksp_spr",
+        "APP_IDENTITY": "sinar_pelita",
+        "APP_NAME": "KSP Sinar Pelita"
+      }
+    }
+  },
+  "ksp_gotong_royong": {
+    "android": {
+      "buildType": "apk"
+    },
+    "env": {
+      "API_URL": "http://192.168.18.100:8000",
+      "PUBLIC_ID": "ksp_gr",
+      "APP_IDENTITY": "gotong_royong",
+      "APP_NAME": "KSP Gotong Royong"
+    }
+  },
+  "ksp_serdang_indah_mandiri": {
+    "android": {
+      "buildType": "apk"
+    },
+    "env": {
+      "API_URL": "http://192.168.18.100:8000",
+      "PUBLIC_ID": "ksp_sim",
+      "APP_IDENTITY": "serdang_indah_mandiri",
+      "APP_NAME": "KSP Serdang Indah Mandiri"
+    }
+  },
+  "ksp_sinar_murni": {
+    "android": {
+      "buildType": "apk"
+    },
+    "env": {
+      "API_URL": "http://192.168.18.100:8000",
+      "PUBLIC_ID": "ksp_sm",
+      "APP_IDENTITY": "sinar_murni",
+      "APP_NAME": "KSP Sinar Murni"
+    }
+  },
+  "ksp_pelita_jaya": {
+    "android": {
+      "buildType": "apk"
+    },
+    "env": {
+      "API_URL": "http://192.168.18.100:8000",
+      "PUBLIC_ID": "ksp_pj",
+      "APP_IDENTITY": "pelita_jaya",
+      "APP_NAME": "KSP Pelita Jaya"
+    }
+  },
+  "ksp_pelita_sejahtera": {
+    "android": {
+      "buildType": "apk"
+    },
+    "env": {
+      "API_URL": "http://192.168.18.100:8000",
+      "PUBLIC_ID": "ksp_ps",
+      "APP_IDENTITY": "pelita_sejahtera",
+      "APP_NAME": "KSP Pelita Sejahtera"
+    }
+  },
+  "ksp_murni": {
+    "android": {
+      "buildType": "apk"
+    },
+    "env": {
+      "API_URL": "http://192.168.18.100:8000",
+      "PUBLIC_ID": "ksp_mrn",
+      "APP_IDENTITY": "murni",
+      "APP_NAME": "KSP Murni"
+    }
+  },
+  "ksp_jaya_abadi": {
+    "android": {
+      "buildType": "apk"
+    },
+    "env": {
+      "API_URL": "http://192.168.18.100:8000",
+      "PUBLIC_ID": "ksp_ja",
+      "APP_IDENTITY": "jaya_abadi",
+      "APP_NAME": "KSP Jaya Abadi"
+    }
+  },
+  "ksp_pelita_mekar": {
+    "android": {
+      "buildType": "apk"
+    },
+    "env": {
+      "API_URL": "http://192.168.18.100:8000",
+      "PUBLIC_ID": "ksp_pm",
+      "APP_IDENTITY": "pelita_mekar",
+      "APP_NAME": "KSP Pelita Mekar"
+    }
+  },
+  "ksp_sinar_kandaga": {
+    "android": {
+      "buildType": "apk"
+    },
+    "env": {
+      "API_URL": "http://192.168.18.100:8000",
+      "PUBLIC_ID": "ksp_sk",
+      "APP_IDENTITY": "sinar_kandaga",
+      "APP_NAME": "KSP Sinar Kandaga"
+    }
+  },
+  "ksp_cipta_abadi_mutiara": {
+    "android": {
+      "buildType": "apk"
+    },
+    "env": {
+      "API_URL": "http://192.168.18.100:8000",
+      "PUBLIC_ID": "ksp_cam",
+      "APP_IDENTITY": "cipta_abadi_mutiara",
+      "APP_NAME": "KSP Cipta Abadi Mutiara"
+    }
+  },
+  "ksp_sinar_mas_kalimantan": {
+    "android": {
+      "buildType": "apk"
+    },
+    "env": {
+      "API_URL": "http://192.168.18.100:8000",
+      "PUBLIC_ID": "ksp_smk",
+      "APP_IDENTITY": "sinar_mas_kalimantan",
+      "APP_NAME": "KSP Sinar Mas Kalimantan"
+    }
+  },
+  "ksp_sinar_tama_sejahtera": {
+    "android": {
+      "buildType": "apk"
+    },
+    "env": {
+      "API_URL": "http://192.168.18.100:8000",
+      "PUBLIC_ID": "ksp_stm",
+      "APP_IDENTITY": "sinar_tama_sejahtera",
+      "APP_NAME": "KSP Sinar Tama Sejahtera"
+    }
+  },
+  "ksp_sinar_jaya": {
+    "android": {
+      "buildType": "apk"
+    },
+    "env": {
+      "API_URL": "http://192.168.18.100:8000",
+      "PUBLIC_ID": "ksp_sj",
+      "APP_IDENTITY": "sinar_jaya",
+      "APP_NAME": "KSP Sinar Jaya"
+    }
+  },
+  "ksp_sinar_berlian": {
+    "android": {
+      "buildType": "apk"
+    },
+    "env": {
+      "API_URL": "http://192.168.18.100:8000",
+      "PUBLIC_ID": "ksp_sb",
+      "APP_IDENTITY": "sinar_berlian",
+      "APP_NAME": "KSP Sinar Berlian"
+    }
+  },
+  "ksp_sinar_pelita_bandung": {
+    "android": {
+      "buildType": "apk"
+    },
+    "env": {
+      "API_URL": "http://192.168.18.100:8000",
+      "PUBLIC_ID": "ksp_spb",
+      "APP_IDENTITY": "sinar_pelita_bandung",
+      "APP_NAME": "KSP Sinar Pelita Bandung"
+    }
+  },
+  "ksp_stabat_sejahtera": {
+    "android": {
+      "buildType": "apk"
+    },
+    "env": {
+      "API_URL": "http://192.168.18.100:8000",
+      "PUBLIC_ID": "ksp_ss",
+      "APP_IDENTITY": "stabat_sejahtera",
+      "APP_NAME": "KSP Stabat Sejahtera"
+    }
+  },
+  "ksp_sehat_ekonomi_mandiri": {
+    "android": {
+      "buildType": "apk"
+    },
+    "env": {
+      "API_URL": "http://192.168.18.100:8000",
+      "PUBLIC_ID": "ksp_sem",
+      "APP_IDENTITY": "sehat_ekonomi_mandiri",
+      "APP_NAME": "KSP Sehat Ekonomi Mandiri"
+    }
+  },
+  "ksp_spm_gresik": {
+    "android": {
+      "buildType": "apk"
+    },
+    "env": {
+      "API_URL": "http://192.168.18.100:8000",
+      "PUBLIC_ID": "ksp_spmg",
+      "APP_IDENTITY": "spm_gresik",
+      "APP_NAME": "KSP SPM Gresik"
+    }
+  },
+  "ksp_spm_surabaya": {
+    "android": {
+      "buildType": "apk"
+    },
+    "env": {
+      "API_URL": "http://192.168.18.100:8000",
+      "PUBLIC_ID": "ksp_spms",
+      "APP_IDENTITY": "spm_surabaya",
+      "APP_NAME": "KSP SPM Surabaya"
+    }
+  },
+  "ksp_spm_cijerah": {
+    "android": {
+      "buildType": "apk"
+    },
+    "env": {
+      "API_URL": "http://192.168.18.100:8000",
+      "PUBLIC_ID": "ksp_spmc",
+      "APP_IDENTITY": "spm_cijerah",
+      "APP_NAME": "KSP SPM Cijerah"
+    }
+  },
+  "ksp_spm_bandung": {
+    "android": {
+      "buildType": "apk"
+    },
+    "env": {
+      "API_URL": "http://192.168.18.100:8000",
+      "PUBLIC_ID": "ksp_spmbd",
+      "APP_IDENTITY": "spm_bandung",
+      "APP_NAME": "KSP SPM Bandung"
+    }
+  },
+  "ksp_spm_denpasar": {
+    "android": {
+      "buildType": "apk"
+    },
+    "env": {
+      "API_URL": "http://192.168.18.100:8000",
+      "PUBLIC_ID": "ksp_spmd",
+      "APP_IDENTITY": "spm_denpasar",
+      "APP_NAME": "KSP SPM Denpasar"
+    }
+  },
+  "ksp_spm_palembang": {
+    "android": {
+      "buildType": "apk"
+    },
+    "env": {
+      "API_URL": "http://192.168.18.100:8000",
+      "PUBLIC_ID": "ksp_spmpg",
+      "APP_IDENTITY": "spm_betung",
+      "APP_NAME": "KSP SPM Betung"
+    }
+  },
+  "ksp_spm_betung": {
+    "android": {
+      "buildType": "apk"
+    },
+    "env": {
+      "API_URL": "http://192.168.18.100:8000",
+      "PUBLIC_ID": "ksp_spmbg",
+      "APP_IDENTITY": "spm_betung",
+      "APP_NAME": "KSP SPM Betung"
+    }
+  },
+  "ksp_spm_pekanbaru": {
+    "android": {
+      "buildType": "apk"
+    },
+    "env": {
+      "API_URL": "http://192.168.18.100:8000",
+      "PUBLIC_ID": "ksp_spmpb",
+      "APP_IDENTITY": "spm_pekanbaru",
+      "APP_NAME": "KSP SPM Pekanbaru"
+    }
+  },
+  "ksp_spm_mojokerto": {
+    "android": {
+      "buildType": "apk"
+    },
+    "env": {
+      "API_URL": "http://192.168.18.100:8000",
+      "PUBLIC_ID": "ksp_spmm",
+      "APP_IDENTITY": "spm_mojokerto",
+      "APP_NAME": "KSP SPM Mojokerto"
+    }
+  }
+}

@@ -1,0 +1,203 @@
+@url = http://192.168.18.100:8000/api
+@token = 861|WWpdhMOFedTZ0KvQMpZxCcMxndk1Xj9GjRBOTqYX358e5031
+### ===
+POST {{url}}/login
+Content-Type: application/json
+
+{
+    "username" : "ibu",
+    "password" : "password123",
+    "tenantID" : "900001",
+    "clientType" : "CUSTOMER"
+}
+
+### ===
+POST {{url}}/change-password
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+    "old_password" : "ksp_pelita_rancaekek_0006018",
+    "new_password" : "password123"
+}
+
+### ===
+GET {{url}}/tenants
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+### ===
+POST {{url}}/create-reservation
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+    "destinationService" : "001",
+    "reason" : "Menjenguk",
+    "branchId" : "001",
+    "attendAtStart" : "2023-09-18 12:00:00.048+07",
+    "attendAtEnd" : "2023-09-18 15:00:00.048+07",
+    "time" : "0100-1900"
+}
+
+###
+GET {{url}}/reservation/1697548721385241143
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+### ===
+GET {{url}}/office
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+### ===
+GET {{url}}/saving
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+### ===
+GET {{url}}/saving/product-type
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+### ===
+GET {{url}}/saving/00102020000009
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+### ===
+GET {{url}}/saving/history/00102020000009
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+### ===
+POST {{url}}/saving
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+    "productType" : "02",
+    "currentBalance" : "230000"
+}
+
+### ===
+POST {{url}}/saving/deposit
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+    "savingId" : "0980980879987",
+    "amount" : "1000000",
+    "paymentMethodId" : "1698295258548618648",
+    "recipient" : "Namaaaa"
+}
+
+### ===
+GET {{url}}/loan
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+### ===
+GET {{url}}/loan/00104010000459
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+### ===
+GET {{url}}/loan/product-type
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+### ===
+GET {{url}}/loan/bill/00104010000459
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+### ===
+GET {{url}}/loan/now/00104010000867
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+### ===
+POST {{url}}/loan
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+    "productType" : "02",
+    "currentBalance" : "200000",
+    "period" : "4"
+}
+
+### ===
+POST {{url}}/loan/repay
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+    "loanId" : "0980980879987",
+    "amount" : "1000000",
+    "paymentMethodId" : "01299",
+    "recipient" : "DANA"
+}
+
+### 
+POST {{url}}/loan/topup
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+    "loanId" : "00104010000867",
+    "amount" : "1000000",
+    "reason" : "Halooo"
+}
+
+### ===
+GET {{url}}/deposit
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+### ===
+GET {{url}}/deposit/00103120000050
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+### ===
+GET {{url}}/deposit/product-type
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+### ===
+POST {{url}}/deposit
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+    "productType" : "03",
+    "currentBalance" : "200000"
+}
+
+### ===
+GET {{url}}/notification
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+### ===
+GET {{url}}/notification/1699001478869365151
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+### ===
+GET {{url}}/image
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+### ===
+GET http://192.168.18.100:8000/images/2023-10-18_051920_BPR_Kreasi_Nusantara_Dev.jpeg
+
+### ===
+GET {{url}}/payment-method
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+### ===
+GET {{url}}/tenant/900001
