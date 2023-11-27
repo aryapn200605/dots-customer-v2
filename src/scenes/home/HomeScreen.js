@@ -23,7 +23,7 @@ const HomeScreen = ({ navigation }) => {
   const [image, setImage] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [tenantName, setTenantName] = useState("");
-  const [currentSlide, setCurrentSlide] = useState({ activeSlide: 0 });
+  // const [currentSlide, setCurrentSlide] = useState({ activeSlide: 0 });
 
   const SLIDER_WIDTH = Dimensions.get("window").width;
   const ITEM_WIDTH = Math.round(SLIDER_WIDTH * 1.0);
@@ -128,7 +128,7 @@ const HomeScreen = ({ navigation }) => {
             />
             <Pagination
               dotsLength={image.length}
-              activeDotIndex={currentSlide}
+              // activeDotIndex={currentSlide}
               dotStyle={{
                 width: 10,
                 height: 10,

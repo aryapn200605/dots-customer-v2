@@ -16,37 +16,11 @@ import LoanTopupRequestScreen from "../scenes/account/LoanTopupRequestScreen";
 import LoanPaymentScreen from "../scenes/account/LoanPaymentScreen";
 import PaymentMethodSelectionScreen from "../components/PaymentMethodSelectionScreen";
 import QRCodeScreen from "../common/QRCodeScreen";
-import { AuthContext } from "../providers/AuthenticationProvider";
 
 const AppNavigation = () => {
   const AppNavigator = createStackNavigator();
 
-  // const { user, exp } = useContext(AuthContext);
-  // const expToken = exp * 1000;
-  // const currentTime = new Date().getTime();
-
-  // console.log("exp : ", expToken);
-  // console.log("now : ", currentTime);
-
-  // if (expToken && expToken < currentTime) {
-  //   Alert.alert(
-  //     "Session Expired",
-  //     "Your session has expired. Please log in again.",
-  //     [
-  //       {
-  //         text: "OK",
-  //         onPress: () => {
-  //           logout();
-  //         },
-  //       },
-  //     ],
-  //     { cancelable: false }
-  //   );
-  // }
-
-  // const GraphqlClient = createGraphqlClient();
   return (
-    // <ApolloProvider client={GraphqlClient}>
     <AppNavigator.Navigator initialRouteName="Home">
       <AppNavigator.Screen
         name="Home"
@@ -78,16 +52,6 @@ const AppNavigation = () => {
         component={AttendanceReservationScreen}
         options={{ headerShown: false }}
       />
-      {/* <AppNavigator.Screen
-          name="AttendanceReservationSuccess"
-          component={AttendanceReservationSuccessScreen}
-          options={{headerShown: false}}
-        />
-        <AppNavigator.Screen
-          name="RestructureRequest"
-          component={RestructureRequestScreen}
-          options={{headerShown: false}}
-        /> */}
       <AppNavigator.Screen
         name="SavingDepositRequest"
         component={SavingDepositRequestScreen}
@@ -139,7 +103,6 @@ const AppNavigation = () => {
         options={{ headerShown: false }}
       />
     </AppNavigator.Navigator>
-    // </ApolloProvider>
   );
 };
 

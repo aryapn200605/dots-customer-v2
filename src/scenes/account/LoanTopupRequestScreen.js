@@ -64,7 +64,6 @@ const LoanTopupRequest = ({ navigation }) => {
             text: "Batal",
             onPress: () => {
               setMutationLoading(false);
-              console.log("Transaksi dibatalkan");
             },
             style: "cancel",
           },

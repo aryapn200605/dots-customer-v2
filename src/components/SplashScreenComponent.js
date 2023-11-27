@@ -13,7 +13,6 @@ const SplashScreenComponent = () => {
 
   const fetchData = async () => {
     try {
-      console.log(PUBLIC_ID);
       const result = await findTenantByid(PUBLIC_ID);
       const data = result.data.data;
       setTenantName(data.name);  

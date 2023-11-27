@@ -1,8 +1,9 @@
 import React, { useContext } from "react";
-import { View, StyleSheet, Alert } from "react-native";
+import { View, StyleSheet, Alert, Linking } from "react-native";
 import { Headline, List, Divider } from "react-native-paper";
 import { AuthContext } from "../../providers/AuthenticationProvider";
 import { useNavigation } from "@react-navigation/native";
+import { API_URL } from "@env"
 
 const SettingScreen = () => {
   const { logout, handleCheckToken } = useContext(AuthContext);
@@ -24,7 +25,7 @@ const SettingScreen = () => {
       <List.Item
         style={styles.settingMenuButton}
         title="FAQ"
-        // onPress={}
+        onPress={() => {Linking.openURL(API_URL + "/mobile/FAQ")}}
       />
       <Divider />
       <List.Item

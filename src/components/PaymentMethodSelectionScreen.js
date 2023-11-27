@@ -39,7 +39,6 @@ const PaymentMethodSelectionScreen = ({ navigation, route }) => {
   useEffect(() => {
     FindPaymentMethod(token, parameter.type, parameter.norek)
       .then((result) => {
-        console.log(result);
         const paymentMethodsData = result.data.data || [];
         if (paymentMethodsData.length === 0 || paymentMethodsData == []) {
           Alert.alert(

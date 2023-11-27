@@ -1,14 +1,20 @@
 import React, { useState, useEffect, useContext } from "react";
 import DropDown from "react-native-paper-dropdown";
 import { useToast } from "react-native-paper-toast";
-import { Alert, TouchableWithoutFeedback } from "react-native";
+import {
+  Alert,
+  TouchableWithoutFeedback,
+  TouchableOpacity,
+} from "react-native";
 import { findAllOffices } from "../../api/OfficeApi";
 import { View, StyleSheet, ScrollView } from "react-native";
 import LoadingOverlay from "../../components/common/LoadingOverlay";
 import DateTimePicker from "@react-native-community/datetimepicker";
 import { TextInput, Appbar, Caption, Button } from "react-native-paper";
 import { AuthContext } from "../../providers/AuthenticationProvider";
-import createReservation, { createReservationRest } from "../../api/ReservationApi";
+import createReservation, {
+  createReservationRest,
+} from "../../api/ReservationApi";
 
 const AttendanceReservationScreen = ({ navigation }) => {
   const { token, handleCheckToken } = useContext(AuthContext);
@@ -33,6 +39,9 @@ const AttendanceReservationScreen = ({ navigation }) => {
       ? currentLocalTime
       : new Date(currentLocalTime.getTime() + 86400000)
   );
+
+  const tomorrow = new Date();
+  tomorrow.setDate(tomorrow.getDate() + 1); // Menambahkan 1 hari
 
   const toaster = useToast();
 
@@ -152,7 +161,7 @@ const AttendanceReservationScreen = ({ navigation }) => {
             attendAtEnd: timestamp2,
             time: clocks,
           },
-          setMutationLoading,
+          setMutationLoading
         )
           .then((res) => {
             setMutationLoading(false);
@@ -177,6 +186,16 @@ const AttendanceReservationScreen = ({ navigation }) => {
     handleCheckToken();
     fetchData();
   }, []);
+
+  const touchableOpacityStyle = Platform.select({
+    ios: {
+      // Gaya spesifik iOS
+      paddingVertical: 10,
+    },
+    android: {
+      // Gaya spesifik Android
+    },
+  });
 
   return (
     <>
@@ -243,28 +262,34 @@ const AttendanceReservationScreen = ({ navigation }) => {
             list={dataService}
           />
           <Caption>Tanggal Kedatangan</Caption>
-          <TouchableWithoutFeedback onPress={() => setShowDatepicker(true)}>
-            <View>
-              <TextInput
-                style={{
-                  height: 55,
-                  marginBottom: 5,
-                  paddingHorizontal: 10,
-                  borderWidth: 1,
-                  borderColor: "#ccc",
+          <TextInput
+            style={{
+              height: 55,
+              marginBottom: 5,
+              paddingHorizontal: 10,
+              borderWidth: 1,
+              borderColor: "#ccc",
+            }}
+            mode="outlined"
+            value={date.toLocaleDateString("id-ID", options)}
+            right={
+              <TextInput.Icon
+                icon={"calendar"}
+                color="black"
+                onPress={() => {
+                  setShowDatepicker(true);
                 }}
-                mode="outlined"
-                value={date.toLocaleDateString("id-ID", options)}
-                editable={false}
               />
-            </View>
-          </TouchableWithoutFeedback>
+            }
+          />
+
           {showDatepicker && (
             <DateTimePicker
               value={date}
               mode="date"
-              minimumDate={date}
+              minimumDate={tomorrow}
               is24Hour={true}
+              visible={showDatepicker}
               display="default"
               onChange={(event, selectedDate) => {
                 const currentDate = selectedDate || date;
@@ -273,6 +298,7 @@ const AttendanceReservationScreen = ({ navigation }) => {
               }}
             />
           )}
+
           <Caption>Waktu Kedatangan</Caption>
           <DropDown
             style={{ backgroundColor: "white" }}
@@ -321,10 +347,6 @@ const styles = StyleSheet.create({
   appbarHeader: {
     elevation: 0,
     backgroundColor: "#F5F8FB",
-  },
-  textInput: {
-    height: 55,
-    marginBottom: 5,
   },
 });
 

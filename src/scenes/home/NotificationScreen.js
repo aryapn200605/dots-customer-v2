@@ -32,7 +32,6 @@ const NotificationScreen = ({ navigation }) => {
     try {
       findAllNotificationByToken(token).then((result) => {
         const apiData = JSON.parse(result.data.data);
-        console.log("rajkbkskjdw", result);
         setData(apiData);
         setRefreshing(false);
       });

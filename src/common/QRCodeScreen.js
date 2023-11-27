@@ -1,9 +1,8 @@
 import React from "react";
 import { Appbar } from "react-native-paper";
 import { View, StyleSheet, Text } from "react-native";
+import { API_URL } from '@env'
 import QRCode from 'react-native-qrcode-svg';
-
-
 
 const QRCodeScreen = ({route, navigation}) => {
     const { selectedNotification } = route.params;
@@ -19,7 +18,7 @@ const QRCodeScreen = ({route, navigation}) => {
         <View>
             <Text style={{alignItems: 'center'}}>Scan QR Code</Text>
           <QRCode
-            value={API_URL + "/api/qrcode/" + JSON.stringify(selectedNotification.id)}
+            value={API_URL + "/qrcode/" + selectedNotification.id}
             size={300}
           />
         </View>

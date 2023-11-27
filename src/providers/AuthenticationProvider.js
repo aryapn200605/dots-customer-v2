@@ -51,9 +51,6 @@ const AuthProvider = ({ children }) => {
         clientType: "CUSTOMER",
         tenantID: PUBLIC_ID,
       });
-      
-      console.log(data.data);
-      const json = JSON.stringify(data);
 
       await SecureStore.setItemAsync("authInfo", JSON.stringify(data.data));
       setUser(data.data.user, data.data.accessToken, data.data.exp);
@@ -71,9 +68,6 @@ const AuthProvider = ({ children }) => {
 
   const handleCheckToken = async () => {
     const expToken = state.exp ? state.exp * 1000 : null;
-
-    console.log("now", new Date().getTime());
-    console.log("exp", state.exp);
 
     if (!expToken && expToken < new Date().getTime()) {
       Alert.alert(
