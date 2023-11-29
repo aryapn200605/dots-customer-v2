@@ -6,25 +6,27 @@
  * @flow strict-local
  */
 
-import React from 'react';
-import {NavigationContainer} from '@react-navigation/native';
-import {DefaultTheme, Provider as PaperProvider} from 'react-native-paper';
-import {ToastProvider} from 'react-native-paper-toast';
-import {SafeAreaProvider} from 'react-native-safe-area-context';
-import RootNavigation from './src/navigations/RootNavigation';
-import AuthProvider from './src/providers/AuthenticationProvider';
-import { setCustomText } from 'react-native-global-props';
-import { useFonts } from 'expo-font';
+import React from "react";
+import RootNavigation from "./src/navigations/RootNavigation";
+import AuthProvider from "./src/providers/AuthenticationProvider";
+import { NavigationContainer } from "@react-navigation/native";
+import { DefaultTheme, Provider as PaperProvider } from "react-native-paper";
+import { ToastProvider } from "react-native-paper-toast";
+import { SafeAreaProvider } from "react-native-safe-area-context";
+import { useFonts } from "expo-font";
+import { StatusBar } from 'react-native';
 
 const App = () => {
   const [fontsLoaded] = useFonts({
-    'Inter-Regular': require('./assets/fonts/Inter-Regular.ttf'),
+    "Inter-Regular": require("./assets/fonts/Inter-Regular.ttf"),
   });
 
+  StatusBar.setHidden(true);
+  StatusBar.setBackgroundColor('#00AA8D');
 
   return (
-    <SafeAreaProvider>
-      <AuthProvider>
+    <AuthProvider>
+        <SafeAreaProvider>
         <PaperProvider theme={theme}>
           <ToastProvider>
             <NavigationContainer>
@@ -32,8 +34,8 @@ const App = () => {
             </NavigationContainer>
           </ToastProvider>
         </PaperProvider>
-      </AuthProvider>
     </SafeAreaProvider>
+      </AuthProvider>
   );
 };
 
@@ -42,8 +44,8 @@ export const theme = {
   roundness: 2,
   colors: {
     ...DefaultTheme.colors,
-    primary: '#273B9A',
-    accent: '#273B9A',
+    primary: "#273B9A",
+    accent: "#273B9A",
   },
 };
 

@@ -5,7 +5,6 @@ import { Clipboard } from 'expo';
 const CopyableText = ({ text }) => {
   const handleCopyText = async () => {
     await Clipboard.setString(text);
-    // Beri umpan balik kepada pengguna jika perlu
   };
 
   return (

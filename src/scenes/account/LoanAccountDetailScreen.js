@@ -6,6 +6,7 @@ import { AuthContext } from "../../providers/AuthenticationProvider";
 import { findLoanById, findLoanNowlById } from "../../api/LoanApi";
 import { Card, Paragraph, Title } from "react-native-paper";
 import { useFonts } from "expo-font";
+import { APP_TYPE } from "@env"
 import ShimmerPlaceholder from "react-native-shimmer-placeholder";
 import MenuButton from "../../components/common/MenuButton";
 
@@ -135,7 +136,7 @@ const LoanAccountDetailScreen = ({ navigation, route }) => {
         >
           {data.id ? data.id : "Account Number Not Available"}{" "}
         </Text>
-        <Text style={styles.balanceTitle}>Sisa Pinjaman</Text>
+        <Text style={styles.balanceTitle}>Sisa {APP_TYPE == 1 ? "Pinjaman" : "Kredit"}</Text>
         <View style={{ flexDirection: "row" }}>
           <Text style={styles.balance}>
             Rp{" "}
@@ -212,7 +213,7 @@ const LoanAccountDetailScreen = ({ navigation, route }) => {
     <View style={styles.screen}>
       <Appbar.Header style={styles.appbarHeader}>
         <Appbar.BackAction onPress={() => navigation.goBack()} />
-        <Appbar.Content title="Pinjaman" />
+        <Appbar.Content title={APP_TYPE == 1 ? "Pinjaman" : "Kredit"} />
       </Appbar.Header>
       <ScrollView>
         <View style={styles.headingBlock}>

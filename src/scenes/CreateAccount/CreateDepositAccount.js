@@ -6,6 +6,7 @@ import { useContext } from "react";
 import { createDeposit, findDepositProdukType } from "../../api/DepositApi";
 import { Alert } from "react-native";
 import DropDown from "react-native-paper-dropdown";
+import { APP_TYPE } from "@env"
 
 const CreateDepositAccount = ({ navigation }) => {
   const { token, handleCheckToken } = useContext(AuthContext);
@@ -73,7 +74,7 @@ const CreateDepositAccount = ({ navigation }) => {
     <>
       <Appbar.Header>
         <Appbar.BackAction onPress={() => navigation.goBack()} />
-        <Appbar.Content title="Ajukan Sim. Berjangka Baru" />
+        <Appbar.Content title={APP_TYPE == 1 ? "Ajukan Sim.Berjangka Baru" : "Ajukan Deposito Baru"} />
       </Appbar.Header>
 
       <View style={styles.container}>

@@ -4,6 +4,7 @@ import { Appbar, TextInput, Button, Caption } from "react-native-paper";
 import { AuthContext } from "../../providers/AuthenticationProvider";
 import { createSaving, findSavingProdukType } from "../../api/SavingApi";
 import { useContext } from "react";
+import { APP_TYPE } from "@env"
 import DropDown from "react-native-paper-dropdown";
 
 const CreateSavingAccount = ({ navigation }) => {
@@ -54,7 +55,7 @@ const CreateSavingAccount = ({ navigation }) => {
           navigation.goBack();
           Alert.alert(
             "Sukses",
-            "Berhasil Mengajukan Simpanan Baru. Silahkan cek notifikasi secara berkala"
+            "Berhasil Mengajukan " + APP_TYPE == 1 ? "Simpanan" : "Tabungan" + " Baru. Silahkan cek notifikasi secara berkala"
           );
         });
       } catch (error) {
@@ -72,7 +73,7 @@ const CreateSavingAccount = ({ navigation }) => {
     <>
       <Appbar.Header>
         <Appbar.BackAction onPress={() => navigation.goBack()} />
-        <Appbar.Content title="Ajukan Simpanan Baru" />
+        <Appbar.Content title={APP_TYPE == 1 ? "Ajukan Simpanan Baru" : "Ajukan Tabungan Baru"} />
       </Appbar.Header>
 
       <View style={styles.container}>

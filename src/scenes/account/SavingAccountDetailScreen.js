@@ -13,6 +13,7 @@ import { findSavingById, findSavingHistory } from "../../api/SavingApi";
 import { AuthContext } from "../../providers/AuthenticationProvider";
 import { ScrollView } from "react-native-gesture-handler";
 import { useFonts } from "expo-font";
+import { APP_TYPE } from "@env"
 import ShimmerPlaceholder from "react-native-shimmer-placeholder";
 import Color from "../../common/Color";
 import LoadingOverlay from "../../components/common/LoadingOverlay";
@@ -136,7 +137,7 @@ const SavingAccountDetailScreen = ({ navigation, route }) => {
           {accountNumber}
         </Text>
 
-        <Text style={styles.balanceTitle}>Saldo Simpanan</Text>
+        <Text style={styles.balanceTitle}>Saldo {APP_TYPE == 1 ? "Simapanan" : "Tabungan"}</Text>
         <View style={{ flexDirection: "row" }}>
           <Headline adjustFontSizeToFit style={styles.balance}>
             Rp{" "}
@@ -192,7 +193,7 @@ const SavingAccountDetailScreen = ({ navigation, route }) => {
     <ScrollView style={styles.screen}>
       <Appbar.Header style={styles.appbarHeader}>
         <Appbar.BackAction onPress={() => navigation.goBack()} />
-        <Appbar.Content title="Simpanan" />
+        <Appbar.Content title={APP_TYPE == 1 ? "Simpanan" : "Tabungan"} />
       </Appbar.Header>
       <View style={styles.headingBlock}>
         <LinearGradient

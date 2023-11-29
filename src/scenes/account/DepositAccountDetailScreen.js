@@ -17,6 +17,7 @@ import Color from "../../common/Color";
 import { findDepositById } from "../../api/DepositApi";
 import { AuthContext } from "../../providers/AuthenticationProvider";
 import { useFonts } from "expo-font";
+import { APP_TYPE } from "@env";
 
 const DepositAccountDetailScreen = ({ navigation, route }) => {
   const { token, handleCheckToken } = useContext(AuthContext);
@@ -144,7 +145,7 @@ const DepositAccountDetailScreen = ({ navigation, route }) => {
     <View style={styles.screen}>
       <Appbar.Header style={styles.appbarHeader}>
         <Appbar.BackAction onPress={() => navigation.goBack()} />
-        <Appbar.Content title="Sim. Berjangka" />
+        <Appbar.Content title={APP_TYPE == 1 ? "Sim.Berjangka" : "Deposito"} />
       </Appbar.Header>
       <ScrollView>
         <View style={styles.headingBlock}>

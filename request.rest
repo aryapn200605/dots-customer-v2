@@ -1,4 +1,5 @@
-@url = http://192.168.18.100:8000/api
+@url = https://mobile-customer.dotsco.re/api
+# @url = http://192.168.18.100:8000/api
 @token = 861|WWpdhMOFedTZ0KvQMpZxCcMxndk1Xj9GjRBOTqYX358e5031
 ### ===
 POST {{url}}/login
@@ -200,4 +201,4 @@ Content-Type: application/json
 Authorization: Bearer {{token}}
 
 ### ===
-GET {{url}}/tenant/900001
+GET {{url}}/tenant/ksp_spr

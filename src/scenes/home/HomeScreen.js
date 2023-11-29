@@ -11,7 +11,7 @@ import { Headline, Appbar, Subheading } from "react-native-paper";
 import { AuthContext } from "../../providers/AuthenticationProvider";
 import { FlatGrid } from "react-native-super-grid";
 import { findAllImage } from "../../api/carosel";
-import { API_URL } from "@env";
+import { API_URL, APP_NAME } from "@env";
 import Color from "../../common/Color";
 import SplashScreen from "../../components/common/SplashScreen";
 import AsyncStorage from "@react-native-async-storage/async-storage";
@@ -97,7 +97,7 @@ const HomeScreen = ({ navigation }) => {
       <Appbar.Header style={Color.primaryBackgroundColor}>
         <Appbar.Content
           style={styles.appbarContent}
-          title={tenantName}
+          title={APP_NAME}
           titleStyle={{ color: "#EAEBF8" }}
         />
       </Appbar.Header>

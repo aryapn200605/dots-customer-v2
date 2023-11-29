@@ -5,6 +5,7 @@ import { useRoute } from "@react-navigation/native";
 import { AuthContext } from "../../providers/AuthenticationProvider";
 import { ScrollView } from "react-native-gesture-handler";
 import { createSavingDeposit } from "../../api/SavingApi";
+import { APP_TYPE } from "@env"
 
 const SavingDepositRequestScreen = ({ navigation }) => {
   const { token, handleCheckToken } = useContext(AuthContext);
@@ -92,7 +93,7 @@ const SavingDepositRequestScreen = ({ navigation }) => {
     <>
       <Appbar.Header style={styles.appbarHeader}>
         <Appbar.BackAction onPress={() => navigation.goBack()} />
-        <Appbar.Content title="Setoran Simpanan" />
+        <Appbar.Content title={APP_TYPE == 1 ? "Setoran Simpanan" : "Setroan Tabungan"} />
       </Appbar.Header>
 
       <ScrollView>

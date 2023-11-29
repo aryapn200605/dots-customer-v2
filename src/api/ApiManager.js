@@ -6,3 +6,17 @@ export const ApiManager = axios.create({
   responseType: "json",
   withCredentials: true,
 });
+
+export const checktoken = async (token) => {
+  try {
+    const result = ApiManager(`/check-token`, {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    return result;
+  } catch (error) {
+    console.log(error);
+  }
+};

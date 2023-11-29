@@ -6,7 +6,7 @@ import LoadingOverlay from "../../components/common/LoadingOverlay";
 import { AuthContext } from "../../providers/AuthenticationProvider";
 import { Image } from "react-native";
 import Color from "../../common/Color";
-import { API_URL, APP_IDENTITY } from "@env";
+import { API_URL, APP_IDENTITY, PUBLIC_ID } from "@env";
 
 const LoginScreen = () => {
   const { login } = useContext(AuthContext);
@@ -58,7 +58,7 @@ const LoginScreen = () => {
         value={username}
         mode="outlined"
         placeholder="Masukan Username"
-        placeholderTextColor={"#99999"}
+        placeholderTextColor={"#999999"}
         underlineColor="transparent"
         onChangeText={(text) => setUsername(text)}
       />
@@ -69,7 +69,7 @@ const LoginScreen = () => {
         value={password}
         mode="outlined"
         placeholder="Masukan Password"
-        placeholderTextColor={"#99999"}
+        placeholderTextColor={"#999999"}
         underlineColor="transparent"
         onChangeText={(text) => setPassword(text)}
         right={

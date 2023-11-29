@@ -19,6 +19,7 @@ import { useEffect } from "react";
 import { findAllSaving } from "../../api/SavingApi";
 import { findAllLoan } from "../../api/LoanApi";
 import { findAllDeposit } from "../../api/DepositApi";
+import { APP_TYPE } from "@env"
 import Color from "../../common/Color";
 import LoadingOverlay from "../../components/common/LoadingOverlay";
 
@@ -31,9 +32,9 @@ const AccountsScreen = ({ navigation }) => {
   const layout = useWindowDimensions();
 
   const [routes] = useState([
-    { key: "savings", title: "Simpanan" },
-    { key: "loan", title: "Pinjaman" },
-    { key: "deposit", title: "Sim. Berjangka" },
+    { key: "savings", title: APP_TYPE == 1 ? "Simpanan" : "Tabungan" },
+    { key: "loan", title: APP_TYPE == 1 ? "Pinjaman" : "Kredit" },
+    { key: "deposit", title: APP_TYPE == 1 ? "Sim. Berjangka" : "Deposito" },
   ]);
 
   const renderSavingAccountsList = () => {
@@ -118,7 +119,7 @@ const AccountsScreen = ({ navigation }) => {
             }}
           >
             <Text style={{ color: "white", textAlign: "center", fontSize: 18 }}>
-              Ajukan Simpanan Baru
+              Ajukan {APP_TYPE == 1 ? "Simpanan" : "Tabungan"} Baru
             </Text>
           </TouchableOpacity>
         </View>
@@ -208,7 +209,7 @@ const AccountsScreen = ({ navigation }) => {
             }}
           >
             <Text style={{ color: "white", textAlign: "center", fontSize: 18 }}>
-              Ajukan Pinjaman Baru
+              Ajukan {APP_TYPE == 1 ? "Pinjaman" : "Kredit"} Baru
             </Text>
           </TouchableOpacity>
         </View>
@@ -300,7 +301,7 @@ const AccountsScreen = ({ navigation }) => {
             }}
           >
             <Text style={{ color: "white", textAlign: "center", fontSize: 18 }}>
-              Ajukan Simpanan Berjangka Baru
+              Ajukan {APP_TYPE == 1 ? "Simpanan Berjangan" : "Deposito"} Baru
             </Text>
           </TouchableOpacity>
         </View>
@@ -367,7 +368,6 @@ const styles = StyleSheet.create({
     height: "100%",
   },
   heading: {
-    marginTop: "15%",
     fontSize: 30,
     marginLeft: "5%",
     paddingBottom: "2%",

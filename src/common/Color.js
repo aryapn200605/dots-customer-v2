@@ -7,5 +7,5 @@ export default Color = StyleSheet.create({
     primaryTextColor: {
         color: '#00AA8D'
     },
-    primaryGradientColor: ['#3ddc84', '#00AA8D'],
+    primaryGradientColor: ['#118a75', '#00AA8D'],
 })

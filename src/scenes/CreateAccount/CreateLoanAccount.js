@@ -4,6 +4,7 @@ import { Appbar, TextInput, Button, Caption } from "react-native-paper";
 import { AuthContext } from "../../providers/AuthenticationProvider";
 import { useContext } from "react";
 import { createLoan, findLoanProdukType } from "../../api/LoanApi";
+import { APP_TYPE } from "@env"
 import DropDown from "react-native-paper-dropdown";
 
 const CreateLoanAccount = ({ navigation }) => {
@@ -59,7 +60,7 @@ const CreateLoanAccount = ({ navigation }) => {
           navigation.goBack();
           Alert.alert(
             "Sukses",
-            "Berhasil Mengajukan Pinjaman Baru. Silahkan cek notifikasi secara berkala"
+            "Berhasil Mengajukan " + APP_TYPE == 1 ? "Pinjaman" : "Kredit" + " Baru. Silahkan cek notifikasi secara berkala"
           );
         });
       } catch (error) {
@@ -88,7 +89,7 @@ const CreateLoanAccount = ({ navigation }) => {
     <>
       <Appbar.Header>
         <Appbar.BackAction onPress={() => navigation.goBack()} />
-        <Appbar.Content title="Ajukan Pinjaman Baru" />
+        <Appbar.Content title={APP_TYPE == 1 ? "Ajukan Pinjaman Baru" : "Ajukan Kredit Baru"} />
       </Appbar.Header>
 
       <View style={styles.container}>

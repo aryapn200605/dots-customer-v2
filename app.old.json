@@ -4,22 +4,20 @@
     "slug": "DotsCustomerV2",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "http://192.168.18.100:8000/images/logo.jpeg",
+    "icon": "https://mobile-customer.dotsco.re/images/logo.jpeg",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "http://192.168.18.100:8000/images/logo-login/gotong-royong.png",
+      "image": "https://mobile-customer.dotsco.re/images/logo-login/gotong-royong.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "ios": {
       "supportsTablet": true
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "http://192.168.18.100:8000/images/logo-login/gotong-royong.png",
+        "foregroundImage": "https://mobile-customer.dotsco.re/images/logo-login/gotong-royong.png",
         "backgroundColor": "#ffffff"
       },
       "package": "com.qubeee.DotsCustomerV2"
