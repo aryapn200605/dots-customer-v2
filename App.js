@@ -21,7 +21,7 @@ const App = () => {
     "Inter-Regular": require("./assets/fonts/Inter-Regular.ttf"),
   });
 
-  StatusBar.setHidden(true);
+  // StatusBar.setHidden(true);
   StatusBar.setBackgroundColor('#00AA8D');
 
   return (

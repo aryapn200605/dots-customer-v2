@@ -168,7 +168,7 @@ const LoanAccountDetailScreen = ({ navigation, route }) => {
       <Card style={{ ...styles.card, backgroundColor: "white" }}>
         <Card.Content>
           <Title style={styles.detailHeading}>
-            Total Tagihan s.d. Bulan Ini
+            Total Pembayaran s.d. Bulan Ini
           </Title>
           <Paragraph style={styles.totalAmount}>
             Rp {totalRepayment.toLocaleString("en")}
@@ -179,7 +179,7 @@ const LoanAccountDetailScreen = ({ navigation, route }) => {
             renderItem={({ item }) => (
               <View style={styles.billItem}>
                 <Text style={styles.billInfo}>
-                  Tagihan ke - {item.term} |{" "}
+                  Pembayaran ke - {item.term} |{" "}
                   <Paragraph>{item.repaymentDate}</Paragraph>
                 </Text>
                 <Text style={styles.paragraph}>Pokok :</Text>

@@ -6,7 +6,7 @@ import LoadingOverlay from "../../components/common/LoadingOverlay";
 import { AuthContext } from "../../providers/AuthenticationProvider";
 import { Image } from "react-native";
 import Color from "../../common/Color";
-import { API_URL, APP_IDENTITY, PUBLIC_ID } from "@env";
+import { API_URL, APP_IDENTITY } from "@env";
 
 const LoginScreen = () => {
   const { login } = useContext(AuthContext);
@@ -49,7 +49,9 @@ const LoginScreen = () => {
       <View style={{ marginTop: "40%", marginBottom: "12%" }}>
         <Image
           style={{ width: "100%", height: 70, marginBottom: 50 }}
-          source={{ uri: API_URL + "/images/app_image/" + APP_IDENTITY + ".png" }}
+          source={{
+            uri: API_URL + "/images/app_image/" + APP_IDENTITY + ".png",
+          }}
         />
       </View>
       <Caption>Username</Caption>

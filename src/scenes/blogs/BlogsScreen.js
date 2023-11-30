@@ -22,13 +22,13 @@ function BlogScreen({ route, navigation, navigator }) {
         <Appbar.BackAction onPress={() => navigation.goBack()} />
         <Text style={{ fontSize: 20, marginLeft: "20%" }}>{item.title}</Text>
       </Appbar.Header>
-      <View style={styles.content}>
         <Lightbox navigator={navigator}>
           <Image
             style={{ width: ITEM_WIDTH, height: ITEM_WIDTH * 0.5 }}
             source={{ uri: item.imageUrl }}
           />
         </Lightbox>
+      <View style={styles.content}>
         <HTML source={{ html: item.description }} />
       </View>
     </ScrollView>

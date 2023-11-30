@@ -1,14 +1,14 @@
 @url = https://mobile-customer.dotsco.re/api
 # @url = http://192.168.18.100:8000/api
-@token = 861|WWpdhMOFedTZ0KvQMpZxCcMxndk1Xj9GjRBOTqYX358e5031
+@token = 74|OtUIajoLQTl5icikZvnTPEoCkcp5zKoskj5ZG8Ntf04c6335
 ### ===
 POST {{url}}/login
 Content-Type: application/json
 
 {
-    "username" : "ibu",
+    "username" : "user",
     "password" : "password123",
-    "tenantID" : "900001",
+    "tenantID" : "ksp_mrn",
     "clientType" : "CUSTOMER"
 }
 

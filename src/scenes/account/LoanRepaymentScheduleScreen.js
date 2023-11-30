@@ -61,17 +61,16 @@ const LoanRepaymentScheduleScreen = ({ navigation, route }) => {
         <View style={styles.container}>
           <Table borderStyle={{ borderWidth: 0 }}>
             <Row
-              data={["Angs", "Tanggal", "Pokok", "Bunga", "Total"]}
+              data={["Angs", "Pokok", "Bunga", "Total"]}
               style={styles.head}
               textStyle={[styles.textHead, { textAlign: "center" }]}
-              widthArr={["15%", "25%", "20%", "20%", "20%"]}
+              widthArr={["25%", "25%", "25%", "25%"]}
             />
             {getCurrentPageData().map((item, index) => (
               <Row
                 key={index}
                 data={[
                   item.term,
-                  item.repaymentDate ? item.repaymentDate : null,
                   item.principalAmount,
                   item.interestAmount,
                   item.amount,

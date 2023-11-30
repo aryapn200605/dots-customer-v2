@@ -80,7 +80,6 @@ export const createLoanTopup = async (token, data) => {
       },
       data: data,
     });
-    console.log("Response Data:", result.data.data);
     return result.data;
   } catch (error) {
     console.error("Error creating loan top-up:", error);
@@ -134,6 +133,18 @@ export const findAllLoan = async (token) => {
       headers: {
         Authorization: `Bearer ${token}`,
       },
+    });
+
+    return result;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const findReasonList = async () => {
+  try {
+    const result = ApiManager(`/topup-reason`, {
+      method: "GET",
     });
 
     return result;

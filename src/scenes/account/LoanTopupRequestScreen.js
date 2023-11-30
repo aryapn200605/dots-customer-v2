@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import {
   View,
   Text,
@@ -10,20 +10,23 @@ import {
 import { Appbar } from "react-native-paper";
 import { useRoute } from "@react-navigation/native";
 import { Button, TextInput } from "react-native-paper";
-import { createLoanTopup } from "../../api/LoanApi";
+import { createLoanTopup, findReasonList, reasonList } from "../../api/LoanApi";
 import { AuthContext } from "../../providers/AuthenticationProvider";
 import Color from "../../common/Color";
+import DropDown from "react-native-paper-dropdown";
 
 const LoanTopupRequest = ({ navigation }) => {
   const { token, handleCheckToken } = useContext(AuthContext);
   const [isFocused, setIsFocused] = useState(false);
   const [mutationLoading, setMutationLoading] = useState(false);
+  const [showDropDownService, setshowDropDownService] = useState(false);
   const [amount, setAmount] = useState("");
   const [reason, setReason] = useState(null);
-  
+  const [reasonList, setReasonList] = useState([]);
+
   const route = useRoute();
   const { id } = route.params;
-  
+
   handleCheckToken();
 
   const handleTextInputFocus = () => {
@@ -96,6 +99,19 @@ const LoanTopupRequest = ({ navigation }) => {
     }
   };
 
+  const fetchData = async () => {
+    try {
+      const data = await findReasonList();
+      setReasonList(data.data.data);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  };
+  
+  useEffect(() => {
+    fetchData();
+  }, []);
+
   return (
     <View style={styles.container}>
       <Appbar.Header style={styles.appbarHeader}>
@@ -128,12 +144,15 @@ const LoanTopupRequest = ({ navigation }) => {
         />
 
         <Text style={styles.text}>Alasan</Text>
-        <TextInput
-          style={styles.input}
-          underlineColor="transparent"
-          placeholderTextColor="#999999"
+        <DropDown
+          mode={"outlined"}
+          visible={showDropDownService}
+          showDropDown={() => setshowDropDownService(true)}
+          onDismiss={() => setshowDropDownService(false)}
           value={reason}
-          onChangeText={(text) => setReason(text)}
+          setValue={setReason}
+          list={reasonList}
+          style={styles.dropdown}
         />
 
         <TouchableOpacity onPress={handleSubmit}>
@@ -179,6 +198,10 @@ const styles = StyleSheet.create({
       ios: 15,
       android: 15,
     }),
+  },
+  dropdown: {
+    marginBottom: 10,
+    marginTop: 10,
   },
   box: {
     backgroundColor: "#ffffff",

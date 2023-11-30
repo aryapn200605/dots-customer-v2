@@ -8,7 +8,7 @@ import {
   Text,
   Dimensions,
 } from "react-native";
-import { Chip, Divider, Headline, List } from "react-native-paper";
+import { Appbar, Chip, Divider, Headline, List } from "react-native-paper";
 import { SceneMap } from "react-native-tab-view";
 import { AuthContext } from "../../providers/AuthenticationProvider";
 import { TabView } from "react-native-tab-view";
@@ -347,9 +347,13 @@ const AccountsScreen = ({ navigation }) => {
 
   return (
     <View style={styles.screen}>
-      <View style={Color.primaryBackgroundColor}>
-        <Headline style={styles.heading}>Rekening Saya</Headline>
-      </View>
+      <Appbar.Header style={Color.primaryBackgroundColor}>
+        <Appbar.Content
+          style={styles.heading}
+          title="Rekening Saya"
+          titleStyle={{ color: "#EAEBF8", fontSize: 25 }}
+        />
+      </Appbar.Header>
       <TabView
         lazy
         navigationState={{ index, routes }}
@@ -368,9 +372,8 @@ const styles = StyleSheet.create({
     height: "100%",
   },
   heading: {
-    fontSize: 30,
     marginLeft: "5%",
-    paddingBottom: "2%",
+    // paddingBottom: "2%",
     color: "white",
   },
   tabBar: {
@@ -385,11 +388,11 @@ const styles = StyleSheet.create({
     padding: 10,
   },
   listItem: {
-    marginTop: 50,
+    marginTop: 70,
   },
   createButtonContainer: {
     position: "absolute",
-    top: 35,
+    top: 20,
     width: "100%",
     backgroundColor: "White",
     padding: 10,

@@ -1,8 +1,8 @@
 import React, { createContext, useReducer, useEffect } from "react";
 import * as SecureStore from "expo-secure-store";
 import { ApiManager } from "../api/ApiManager";
-import { Alert } from "react-native";
 import { PUBLIC_ID } from "@env";
+import { checkToken } from "../api/CheckToken";
 
 const AuthReducer = (state, action) => {
   switch (action.type) {
@@ -49,7 +49,7 @@ const AuthProvider = ({ children }) => {
         username: username,
         password: password,
         clientType: "CUSTOMER",
-        tenantID: PUBLIC_ID,
+        tenantID: "ksp_mrn",
       });
 
       await SecureStore.setItemAsync("authInfo", JSON.stringify(data.data));
@@ -67,20 +67,39 @@ const AuthProvider = ({ children }) => {
   };
 
   const handleCheckToken = async () => {
-    const expToken = state.exp ? state.exp * 1000 : null;
+    try {
+      const response = await checkToken(state.token);
+      const status = response.status;
 
-    if (!expToken && expToken < new Date().getTime()) {
-      Alert.alert(
-        "Sesi telah berakhir",
-        "Silahkan login kembali",
-        [
-          {
-            text: "OK",
-            onPress: logout,
-          },
-        ],
-        { cancelable: false }
-      );
+      if (status === 401) {
+        Alert.alert(
+          "Sesi telah berakhir",
+          "Silakan login kembali",
+          [
+            {
+              text: "OK",
+              onPress: logout,
+            },
+          ],
+          { cancelable: false }
+        );
+      }
+    } catch (error) {
+      console.error("Error:", error.status);
+
+      if (status === 401) {
+        Alert.alert(
+          "Sesi telah berakhir",
+          "Silakan login kembali",
+          [
+            {
+              text: "OK",
+              onPress: logout,
+            },
+          ],
+          { cancelable: false }
+        );
+      }
     }
   };
 

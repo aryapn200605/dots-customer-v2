@@ -4,7 +4,7 @@ module.exports = {
   version: "1.0.0",
   orientation: "portrait",
   // icon: "./assets/img/logo-old.png",
-  icon: "./assets/app_icon/" + process.env.APP_IDENTITY + ".png",
+  icon: "./assets/app_icon/murni.png",
   userInterfaceStyle: "light",
   ios: {
     bundleIdentifier: "com.dots_customer." + process.env.APP_IDENTITY,
@@ -13,7 +13,7 @@ module.exports = {
     package: "com.dots_customer." + process.env.APP_IDENTITY,
   },
   splash: {
-    image: "./assets/app_image/" + process.env.APP_IDENTITY + ".png",
+    image: "./assets/app_image/murni.png",
     // image: "./assets/img/logo-old.png",
     resizeMode: "contain",
     backgroundColor: "#ffffff",

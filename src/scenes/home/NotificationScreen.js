@@ -12,7 +12,7 @@ import {
   NotificationStatus,
   findAllNotificationByToken,
 } from "../../api/NotificationApi";
-import { Headline, Card, Divider, Button } from "react-native-paper";
+import { Headline, Card, Divider, Button, Appbar } from "react-native-paper";
 import { AuthContext } from "../../providers/AuthenticationProvider";
 import Color from "../../common/Color";
 
@@ -85,9 +85,13 @@ const NotificationScreen = ({ navigation }) => {
 
   return (
     <View style={styles.screen}>
-      <View style={Color.primaryBackgroundColor}>
-        <Headline style={styles.heading}>Notifikasi</Headline>
-      </View>
+    <Appbar.Header style={Color.primaryBackgroundColor}>
+      <Appbar.Content
+        style={styles.heading}
+        title="Notifikasi"
+        titleStyle={{ color: "#EAEBF8", fontSize: 25 }}
+      />
+    </Appbar.Header>
       <ScrollView
         refreshControl={
           <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />

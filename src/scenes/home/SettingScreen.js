@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { View, StyleSheet, Alert, Linking } from "react-native";
-import { Headline, List, Divider } from "react-native-paper";
+import { Headline, List, Divider, Appbar } from "react-native-paper";
 import { AuthContext } from "../../providers/AuthenticationProvider";
 import { useNavigation } from "@react-navigation/native";
 import { API_URL } from "@env"
@@ -18,9 +18,13 @@ const SettingScreen = () => {
 
   return (
     <View style={styles.screen}>
-      <View style={Color.primaryBackgroundColor}>
-        <Headline style={styles.heading}>Pengaturan</Headline>
-      </View>
+    <Appbar.Header style={Color.primaryBackgroundColor}>
+      <Appbar.Content
+        style={styles.heading}
+        title="Settings"
+        titleStyle={{ color: "#EAEBF8", fontSize: 25 }}
+      />
+    </Appbar.Header>
 
       <List.Item
         style={styles.settingMenuButton}

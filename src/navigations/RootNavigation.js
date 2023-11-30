@@ -30,16 +30,19 @@ const RootNavigation = () => {
       }
     } catch (error) {
       console.error("Error fetching tenant data:", error);
+    } finally {
+      setLoadingUser(false);
     }
   };
 
   useEffect(() => {
     fetchData();
-    setLoadingUser(false);
   }, []);
 
-  const isLoggedIn = !!user;
-  return isLoggedIn ? <AppNavigation /> : <AuthenticationNavigation />;
+  if (!loadingUser) {
+    const isLoggedIn = !!user;
+    return isLoggedIn ? <AppNavigation /> : <AuthenticationNavigation />;
+  }
 };
 
 export default RootNavigation;
