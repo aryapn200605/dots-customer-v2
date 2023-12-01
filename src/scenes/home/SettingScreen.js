@@ -16,6 +16,10 @@ const SettingScreen = () => {
     navigation.navigate("ChangePassword");
   };
 
+  const handleFAQPress = () => {
+    navigation.navigate("FAQScreen");
+  };
+
   return (
     <View style={styles.screen}>
     <Appbar.Header style={Color.primaryBackgroundColor}>
@@ -29,7 +33,7 @@ const SettingScreen = () => {
       <List.Item
         style={styles.settingMenuButton}
         title="FAQ"
-        onPress={() => {Linking.openURL(API_URL + "/mobile/FAQ")}}
+        onPress={handleFAQPress}
       />
       <Divider />
       <List.Item

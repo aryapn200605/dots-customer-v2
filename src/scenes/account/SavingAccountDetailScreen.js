@@ -7,13 +7,15 @@ import {
   Divider,
   Caption,
   IconButton,
+  Card,
+  Title,
 } from "react-native-paper";
 import { LinearGradient } from "expo-linear-gradient";
 import { findSavingById, findSavingHistory } from "../../api/SavingApi";
 import { AuthContext } from "../../providers/AuthenticationProvider";
 import { ScrollView } from "react-native-gesture-handler";
 import { useFonts } from "expo-font";
-import { APP_TYPE } from "@env"
+import { APP_TYPE } from "@env";
 import ShimmerPlaceholder from "react-native-shimmer-placeholder";
 import Color from "../../common/Color";
 import LoadingOverlay from "../../components/common/LoadingOverlay";
@@ -137,7 +139,9 @@ const SavingAccountDetailScreen = ({ navigation, route }) => {
           {accountNumber}
         </Text>
 
-        <Text style={styles.balanceTitle}>Saldo {APP_TYPE == 1 ? "Simapanan" : "Tabungan"}</Text>
+        <Text style={styles.balanceTitle}>
+          Saldo {APP_TYPE == 1 ? "Simapanan" : "Tabungan"}
+        </Text>
         <View style={{ flexDirection: "row" }}>
           <Headline adjustFontSizeToFit style={styles.balance}>
             Rp{" "}
@@ -161,25 +165,29 @@ const SavingAccountDetailScreen = ({ navigation, route }) => {
     const formatToRupiah = (angka) => {
       return `${angka.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")}`;
     };
-    const isDebit = item.transactionType == "C ";
-
+    const isDebit = item.transactionType === "C ";
+  
     return (
-      <List.Item
-        titleStyle={{ marginBottom: 7 }}
-        style={{ backgroundColor: "white" }}
-        title={<Text>{item.title}</Text>}
-        description={<Text>{timestamp}</Text>}
-        right={() => (
-          <Caption
-            style={[
-              styles.transactionAmountCaption,
-              isDebit ? styles.creditTrxAmount : styles.debitTrxAmount,
-            ]}
-          >
-            {isDebit ? "+" : "-"}Rp {formatToRupiah(item.amount)}
-          </Caption>
-        )}
-      />
+      <Card style={styles.transactionCard}>
+        <Card.Content>
+          <Text style={{ fontSize: 15 }}>{item.title}</Text>
+          <View style={styles.transactionDetails}>
+            <View style={styles.timestampContainer}>
+              <Text>{timestamp}</Text>
+            </View>
+            <View style={styles.captionContainer}>
+              <Caption
+                style={[
+                  styles.transactionAmountCaption,
+                  isDebit ? styles.creditTrxAmount : styles.debitTrxAmount,
+                ]}
+              >
+                {isDebit ? "+" : "-"}Rp {formatToRupiah(item.amount)}
+              </Caption>
+            </View>
+          </View>
+        </Card.Content>
+      </Card>
     );
   };
 
@@ -205,20 +213,20 @@ const SavingAccountDetailScreen = ({ navigation, route }) => {
       </View>
 
       <FlatList
-            horizontal={true}
-            data={menus}
-            keyExtractor={(item) => item.id.toString()}
-            renderItem={({ item }) => (
-              <View style={styles.menuButton}>
-                <MenuButton
-                  style={styles.menuButton}
-                  iconName={item.icon}
-                  title={item.title}
-                  onPress={item.onPress}
-                />
-              </View>
-            )}
-          />
+        horizontal={true}
+        data={menus}
+        keyExtractor={(item) => item.id.toString()}
+        renderItem={({ item }) => (
+          <View style={styles.menuButton}>
+            <MenuButton
+              style={styles.menuButton}
+              iconName={item.icon}
+              title={item.title}
+              onPress={item.onPress}
+            />
+          </View>
+        )}
+      />
       <View>
         <Headline style={styles.detailHeading}>Sejarah Transaksi</Headline>
         {loading ? (
@@ -293,8 +301,9 @@ const styles = StyleSheet.create({
     marginTop: 5,
   },
   transactionAmountCaption: {
-    fontSize: 16,
-    top: 10,
+    right: 0,
+    fontSize: 15,
+    top: 0,
     fontWeight: "bold",
     marginRight: 10,
   },
@@ -308,12 +317,30 @@ const styles = StyleSheet.create({
     marginRight: 5,
     marginLeft: 10,
     marginTop: 7,
-    marginBottom: 0
+    marginBottom: 0,
   },
   buttonRow: {
     flexDirection: "row",
     margin: 5,
     height: 100,
+  },
+  transactionCard: {
+    marginBottom: 0,
+  },
+  transactionDetails: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    marginTop: 10,
+  },
+  timestampContainer: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "flex-start",
+  },
+  captionContainer: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "flex-end",
   },
 });
 

@@ -7,7 +7,7 @@ import {
   Platform,
 } from "react-native";
 import { Appbar } from "react-native-paper";
-import { Table, Row } from "react-native-table-component";
+import { Table, Row, Rows, Col } from "react-native-table-component";
 import { findLoanBillById } from "../../api/LoanApi";
 import { AuthContext } from "../../providers/AuthenticationProvider";
 
@@ -59,25 +59,15 @@ const LoanRepaymentScheduleScreen = ({ navigation, route }) => {
 
       <View style={styles.box}>
         <View style={styles.container}>
-          <Table borderStyle={{ borderWidth: 0 }}>
+          <Table borderStyle={{ borderWidth: 0}}>
             <Row
-              data={["Angs", "Pokok", "Bunga", "Total"]}
-              style={styles.head}
-              textStyle={[styles.textHead, { textAlign: "center" }]}
-              widthArr={["25%", "25%", "25%", "25%"]}
+            data={["Ke", "Tgl", "Pokok", "Bunga", "Denda", "Total"]}
+            textStyle={ styles.head }
             />
-            {getCurrentPageData().map((item, index) => (
-              <Row
-                key={index}
-                data={[
-                  item.term,
-                  item.principalAmount,
-                  item.interestAmount,
-                  item.amount,
-                ]}
-                textStyle={styles.textData}
-              />
-            ))}
+            <Rows
+              data={getCurrentPageData()}
+              textStyle={styles.textData}
+            />
           </Table>
         </View>
         {data.length > itemsPerPage && (
@@ -140,25 +130,23 @@ const styles = StyleSheet.create({
     }),
   },
   head: {
-    height: 40,
-    borderBottomWidth: 1.0,
-    marginBottom: 20,
-    width: "100%",
+    paddingBottom: 5,
+    borderBottomWidth: 1,
+    textAlign: "center",
   },
   textHead: {
     margin: 6,
     fontSize: 14,
   },
   textData: {
-    margin: 7,
+    textAlign: "center",
     fontSize: 10,
     width: "100%",
-    marginLeft: -5,
-    textAlign: "center",
+    marginVertical: 8
   },
   box: {
     backgroundColor: "#ffffff",
-    padding: 20,
+    padding: 10,
     borderRadius: 10,
     marginTop: 30,
     margin: 10,

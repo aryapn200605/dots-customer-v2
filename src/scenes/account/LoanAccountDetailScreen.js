@@ -1,14 +1,22 @@
 import React, { useContext, useEffect, useState } from "react";
 import { View, StyleSheet, Text, ScrollView, FlatList } from "react-native";
-import { Appbar, IconButton } from "react-native-paper";
+import {
+  Appbar,
+  Caption,
+  Divider,
+  Headline,
+  IconButton,
+  List,
+} from "react-native-paper";
 import { LinearGradient } from "expo-linear-gradient";
 import { AuthContext } from "../../providers/AuthenticationProvider";
 import { findLoanById, findLoanNowlById } from "../../api/LoanApi";
 import { Card, Paragraph, Title } from "react-native-paper";
 import { useFonts } from "expo-font";
-import { APP_TYPE } from "@env"
+import { APP_TYPE } from "@env";
 import ShimmerPlaceholder from "react-native-shimmer-placeholder";
 import MenuButton from "../../components/common/MenuButton";
+import LoadingOverlay from "../../components/common/LoadingOverlay";
 
 const LoanAccountDetailScreen = ({ navigation, route }) => {
   const { token, handleCheckToken } = useContext(AuthContext);
@@ -136,7 +144,9 @@ const LoanAccountDetailScreen = ({ navigation, route }) => {
         >
           {data.id ? data.id : "Account Number Not Available"}{" "}
         </Text>
-        <Text style={styles.balanceTitle}>Sisa {APP_TYPE == 1 ? "Pinjaman" : "Kredit"}</Text>
+        <Text style={styles.balanceTitle}>
+          Sisa {APP_TYPE == 1 ? "Pinjaman" : "Kredit"}
+        </Text>
         <View style={{ flexDirection: "row" }}>
           <Text style={styles.balance}>
             Rp{" "}
@@ -159,45 +169,29 @@ const LoanAccountDetailScreen = ({ navigation, route }) => {
     );
   };
 
-  const renderUpcomingRepayment = () => {
-    let totalRepayment = 0;
-    for (let i = 0; i < bill.length; i++) {
-      totalRepayment += Number(bill[i].amount);
-    }
+  function formatAmount(amount) {
+    const formattedAmount = parseFloat(amount).toLocaleString('en-US', {
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 2,
+    });
+    return formattedAmount;
+  }
+
+  const renderTransactionItem = (item) => {
     return (
-      <Card style={{ ...styles.card, backgroundColor: "white" }}>
+      <Card style={styles.transactionCard}>
         <Card.Content>
-          <Title style={styles.detailHeading}>
-            Total Pembayaran s.d. Bulan Ini
-          </Title>
-          <Paragraph style={styles.totalAmount}>
-            Rp {totalRepayment.toLocaleString("en")}
-          </Paragraph>
-          <FlatList
-            data={bill}
-            keyExtractor={(item, index) => index.toString()}
-            renderItem={({ item }) => (
-              <View style={styles.billItem}>
-                <Text style={styles.billInfo}>
-                  Pembayaran ke - {item.term} |{" "}
-                  <Paragraph>{item.repaymentDate}</Paragraph>
-                </Text>
-                <Text style={styles.paragraph}>Pokok :</Text>
-                <Paragraph>
-                  Rp {parseFloat(item.principalAmount).toLocaleString("en")}
-                </Paragraph>
-                <Text style={styles.paragraph}>Bunga :</Text>
-                <Paragraph>
-                  Rp {parseFloat(item.interestAmount).toLocaleString("en")}
-                </Paragraph>
-                <Text style={styles.paragraph}>Denda :</Text>
-                <Paragraph>
-                  Rp {parseFloat(item.penaltyAmount).toLocaleString("en")}
-                </Paragraph>
-              </View>
-            )}
-            ItemSeparatorComponent={() => <View style={styles.separator} />}
-          />
+          <Text style={{ fontSize: 15 }}>{item.description}</Text>
+          <View style={styles.transactionDetails}>
+            <View style={styles.timestampContainer}>
+              <Text>{item.repaymentDate}</Text>
+            </View>
+            <View style={styles.captionContainer}>
+              <Caption style={styles.transactionAmountCaption}>
+                Rp.{formatAmount(item.amount)}
+              </Caption>
+            </View>
+          </View>
         </Card.Content>
       </Card>
     );
@@ -210,7 +204,7 @@ const LoanAccountDetailScreen = ({ navigation, route }) => {
   }, []);
 
   return (
-    <View style={styles.screen}>
+    <ScrollView style={styles.screen}>
       <Appbar.Header style={styles.appbarHeader}>
         <Appbar.BackAction onPress={() => navigation.goBack()} />
         <Appbar.Content title={APP_TYPE == 1 ? "Pinjaman" : "Kredit"} />
@@ -239,9 +233,22 @@ const LoanAccountDetailScreen = ({ navigation, route }) => {
             )}
           />
         </View>
-        {renderUpcomingRepayment()}
+        <View>
+          <Headline style={styles.detailHeading}>Sejarah Pembayaran</Headline>
+          {loanLoading ? (
+            <View style={{ marginTop: 15 }}>
+              <LoadingOverlay />
+            </View>
+          ) : (
+            <FlatList
+              data={bill}
+              renderItem={({ item }) => renderTransactionItem(item)}
+              ItemSeparatorComponent={() => <Divider />}
+            />
+          )}
+        </View>
       </ScrollView>
-    </View>
+    </ScrollView>
   );
 };
 
@@ -249,10 +256,17 @@ const styles = StyleSheet.create({
   screen: {
     backgroundColor: "#F5F8FB",
     flexGrow: 1,
+    flex: 1
   },
   appbarHeader: {
     elevation: 0,
     backgroundColor: "#F5F8FB",
+  },
+  detailHeading: {
+    fontSize: 22,
+    fontWeight: "bold",
+    marginHorizontal: 15,
+    marginVertical: 10
   },
   headingBlock: {
     marginTop: "3%",
@@ -287,7 +301,7 @@ const styles = StyleSheet.create({
     marginRight: 5,
     marginLeft: 5,
     marginTop: 7,
-    marginBottom: 0
+    marginBottom: 0,
   },
   buttonRow: {
     flexDirection: "row",
@@ -311,6 +325,38 @@ const styles = StyleSheet.create({
     marginTop: 5,
     fontSize: 17,
   },
+  transactionAmountCaption: {
+    right: 0,
+    fontSize: 20,
+    top: 0,
+    fontWeight: "bold",
+    marginRight: 10,
+  },
+  debitTrxAmount: {
+    color: "red",
+  },
+  creditTrxAmount: {
+    color: "#95D362",
+  },
+  
+  transactionCard: {
+    marginBottom: 0,
+  },
+  transactionDetails: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    marginTop: 10,
+  },
+  timestampContainer: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "flex-start",
+  },
+  captionContainer: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "flex-end",
+  },
 
   card: {
     margin: 20,
@@ -324,6 +370,21 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: "black",
     textAlign: "center",
+  },
+  transactionTitle: {
+    fontSize: 16,
+    fontWeight: "bold",
+  },
+  transactionDescription: {
+    fontSize: 14,
+    color: "black",
+  },
+  transactionDate: {
+    fontSize: 12,
+  },
+  separator: {
+    height: 1,
+    backgroundColor: "#ddd",
   },
 });
 

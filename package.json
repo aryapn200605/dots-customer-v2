@@ -47,6 +47,7 @@
     "react-native-svg": "^14.0.0",
     "react-native-tab-view": "^3.5.2",
     "react-native-table-component": "^1.2.2",
+    "react-native-webview": "^13.2.2",
     "react-test-renderer": "^17.0.2",
     "terbilang-js": "^1.0.1"
   },

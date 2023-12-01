@@ -301,7 +301,7 @@ const AccountsScreen = ({ navigation }) => {
             }}
           >
             <Text style={{ color: "white", textAlign: "center", fontSize: 18 }}>
-              Ajukan {APP_TYPE == 1 ? "Simpanan Berjangan" : "Deposito"} Baru
+              Ajukan {APP_TYPE == 1 ? "Simpanan Berjangka" : "Deposito"} Baru
             </Text>
           </TouchableOpacity>
         </View>
@@ -392,7 +392,7 @@ const styles = StyleSheet.create({
   },
   createButtonContainer: {
     position: "absolute",
-    top: 20,
+    top: 23,
     width: "100%",
     backgroundColor: "White",
     padding: 10,
