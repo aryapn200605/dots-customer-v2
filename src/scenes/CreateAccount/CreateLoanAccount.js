@@ -96,6 +96,7 @@ const CreateLoanAccount = ({ navigation }) => {
         <View style={styles.box}>
           <Caption>Produk</Caption>
           <DropDown
+            dropDownStyle={{ marginTop: 20 }}
             mode={"outlined"}
             visible={showDropDownService}
             showDropDown={() => setshowDropDownService(true)}
@@ -115,8 +116,9 @@ const CreateLoanAccount = ({ navigation }) => {
             keyboardType="numeric"
           />
 
-          <Caption>Periode jangka Waktu</Caption>
+          <Caption>Jangka Waktu</Caption>
           <DropDown
+            dropDownStyle={{ marginTop: 20 }}
             mode={"outlined"}
             visible={showDropDow}
             showDropDown={() => setShowDropDown(true)}

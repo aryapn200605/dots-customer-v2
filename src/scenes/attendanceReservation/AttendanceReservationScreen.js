@@ -216,6 +216,7 @@ const AttendanceReservationScreen = ({ navigation }) => {
         >
           <Caption>Kantor Tujuan</Caption>
           <DropDown
+            dropDownStyle={{ marginTop: 20 }}
             style={{ backgroundColor: "white" }}
             placeholder={!officesData.length ? "Loading..." : null}
             mode={"outlined"}
@@ -238,6 +239,7 @@ const AttendanceReservationScreen = ({ navigation }) => {
           />
           <Caption>Layanan Tujuan</Caption>
           <DropDown
+            dropDownStyle={{ marginTop: 20 }}
             style={{ backgroundColor: "white" }}
             mode={"outlined"}
             value={destinationService}
@@ -252,6 +254,7 @@ const AttendanceReservationScreen = ({ navigation }) => {
           />
           <Caption>Tujuan Kedatangan</Caption>
           <DropDown
+            dropDownStyle={{ marginTop: 20 }}
             style={{ backgroundColor: "white" }}
             mode={"outlined"}
             visible={showDropDownService}
@@ -301,6 +304,7 @@ const AttendanceReservationScreen = ({ navigation }) => {
 
           <Caption>Waktu Kedatangan</Caption>
           <DropDown
+            dropDownStyle={{ marginTop: 20 }}
             style={{ backgroundColor: "white" }}
             mode={"outlined"}
             value={attendanceTimeRange}

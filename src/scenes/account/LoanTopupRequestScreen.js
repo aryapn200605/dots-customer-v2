@@ -149,6 +149,7 @@ const LoanTopupRequest = ({ navigation }) => {
           visible={showDropDownService}
           showDropDown={() => setshowDropDownService(true)}
           onDismiss={() => setshowDropDownService(false)}
+          dropDownStyle={{ marginTop: 20 }}
           value={reason}
           setValue={setReason}
           list={reasonList}

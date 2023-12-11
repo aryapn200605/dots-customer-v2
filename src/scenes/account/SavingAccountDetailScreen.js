@@ -140,7 +140,7 @@ const SavingAccountDetailScreen = ({ navigation, route }) => {
         </Text>
 
         <Text style={styles.balanceTitle}>
-          Saldo {APP_TYPE == 1 ? "Simapanan" : "Tabungan"}
+          Saldo {APP_TYPE == 1 ? "Simpanan" : "Tabungan"}
         </Text>
         <View style={{ flexDirection: "row" }}>
           <Headline adjustFontSizeToFit style={styles.balance}>

@@ -100,7 +100,7 @@ const AccountsScreen = ({ navigation }) => {
     };
 
     return (
-      <SafeAreaView style={{ marginTop: "-10%" }}>
+      <SafeAreaView style={{ marginTop: "-9%" }}>
         <View style={styles.listItem}>
           <FlatList
             data={data}
@@ -190,7 +190,7 @@ const AccountsScreen = ({ navigation }) => {
     };
 
     return (
-      <SafeAreaView style={{ marginTop: "-10%" }}>
+      <SafeAreaView style={{ marginTop: "-9%" }}>
         <View style={styles.listItem}>
           <FlatList
             data={data}
@@ -282,7 +282,7 @@ const AccountsScreen = ({ navigation }) => {
     };
 
     return (
-      <SafeAreaView style={{ marginTop: "-10%" }}>
+      <SafeAreaView style={{ marginTop: "-9%" }}>
         <View style={styles.listItem}>
           <FlatList
             data={data}
@@ -392,7 +392,7 @@ const styles = StyleSheet.create({
   },
   createButtonContainer: {
     position: "absolute",
-    top: 23,
+    top: 26,
     width: "100%",
     backgroundColor: "White",
     padding: 10,

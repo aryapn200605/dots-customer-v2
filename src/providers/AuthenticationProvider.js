@@ -87,7 +87,7 @@ const AuthProvider = ({ children }) => {
     } catch (error) {
       console.error("Error:", error.status);
 
-      if (status === 401) {
+      if (error.status === 401) {
         Alert.alert(
           "Sesi telah berakhir",
           "Silakan login kembali",

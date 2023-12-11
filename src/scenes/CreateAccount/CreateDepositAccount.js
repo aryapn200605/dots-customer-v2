@@ -85,6 +85,7 @@ const CreateDepositAccount = ({ navigation }) => {
             visible={showDropDownService}
             showDropDown={() => setshowDropDownService(true)}
             onDismiss={() => setshowDropDownService(false)}
+            dropDownStyle={{ marginTop: 20 }}
             value={Service}
             setValue={setService}
             list={dropdown}

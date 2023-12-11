@@ -3,18 +3,18 @@ module.exports = {
   slug: "dots-customer",
   version: "1.0.0",
   orientation: "portrait",
-  // icon: "./assets/img/logo-old.png",
-  icon: "./assets/app_icon/murni.png",
+  icon: "./assets/img/logo-old.png",
+  // icon: "./assets/app_icon/murni.png",
   userInterfaceStyle: "light",
   ios: {
-    bundleIdentifier: "com.dots_customer." + process.env.APP_IDENTITY,
+    bundleIdentifier: "com.dots-customer." + process.env.APP_IDENTITY,
   },
   android: {
     package: "com.dots_customer." + process.env.APP_IDENTITY,
   },
   splash: {
-    image: "./assets/app_image/murni.png",
-    // image: "./assets/img/logo-old.png",
+    // image: "./assets/app_image/murni.png",
+    image: "./assets/img/logo-old.png",
     resizeMode: "contain",
     backgroundColor: "#ffffff",
   },

@@ -6,10 +6,10 @@
       },
       "env": {
         "API_URL": "https://mobile-customer.dotsco.re",
-        "PUBLIC_ID": "ksp_mrn",
-        "APP_IDENTITY": "murni",
-        "APP_NAME": "KSP Murni",
-        "APP_TYPE": "1"
+        "PUBLIC_ID": "bpr_kn_dev",
+        "APP_IDENTITY": "logo_old",
+        "APP_NAME": "Mobile Customer",
+        "APP_TYPE": "2"
       }
     }
   }

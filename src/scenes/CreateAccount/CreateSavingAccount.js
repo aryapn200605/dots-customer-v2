@@ -80,6 +80,7 @@ const CreateSavingAccount = ({ navigation }) => {
         <View style={styles.box}>
           <Caption>Produk</Caption>
           <DropDown
+            dropDownStyle={{ marginTop: 20 }}
             mode={"outlined"}
             visible={showDropDownService}
             showDropDown={() => setshowDropDownService(true)}
@@ -90,7 +91,7 @@ const CreateSavingAccount = ({ navigation }) => {
             style={styles.dropdown}
           />
 
-          <Caption>Jumlah Pengajuan</Caption>
+          <Caption>Setoran Awal</Caption>
           <TextInput
             style={styles.input}
             mode="outlined"
