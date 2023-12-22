@@ -6,7 +6,7 @@ import LoadingOverlay from "../../components/common/LoadingOverlay";
 import { AuthContext } from "../../providers/AuthenticationProvider";
 import { Image } from "react-native";
 import Color from "../../common/Color";
-import { API_URL, APP_IDENTITY } from "@env";
+import { API_URL, APP_IDENTITY, PUBLIC_ID } from "@env";
 
 const LoginScreen = () => {
   const { login } = useContext(AuthContext);

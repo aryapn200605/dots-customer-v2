@@ -71,7 +71,7 @@ const LoanPayment = ({ navigation }) => {
               createPayment(token, {
                 loanId: parameter.norek,
                 paymentMethodId: selectedMethod.id,
-                amount: amount,
+                amount: amount.replace(/[^0-9]/g, ''),
                 recipient: rekeningPengirim,
               }).then((result) => {
                 navigation.navigate("LoanDetail", { id: parameter.norek });

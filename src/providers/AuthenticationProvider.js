@@ -49,7 +49,7 @@ const AuthProvider = ({ children }) => {
         username: username,
         password: password,
         clientType: "CUSTOMER",
-        tenantID: "ksp_mrn",
+        tenantID: PUBLIC_ID,
       });
 
       await SecureStore.setItemAsync("authInfo", JSON.stringify(data.data));
@@ -71,7 +71,7 @@ const AuthProvider = ({ children }) => {
       const response = await checkToken(state.token);
       const status = response.status;
 
-      if (status === 401) {
+      if (!state.token || status == 401 || error.response?.status == 401) {
         Alert.alert(
           "Sesi telah berakhir",
           "Silakan login kembali",
@@ -87,7 +87,7 @@ const AuthProvider = ({ children }) => {
     } catch (error) {
       console.error("Error:", error.status);
 
-      if (error.status === 401) {
+      if (!state.token || error.status == 401 || error?.status == 401) {
         Alert.alert(
           "Sesi telah berakhir",
           "Silakan login kembali",
